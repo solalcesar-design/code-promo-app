@@ -1,40 +1,7 @@
-<script>
-    async function simulerTest() {
-        const site = document.getElementById('siteName').value;
-        const fileInput = document.getElementById('fileInput');
-
-        if(!site || fileInput.files.length === 0) {
-            alert("Maman, n'oublie pas de mettre la photo et le nom du site ! 😊");
-            return;
-        }
-
-        const statusArea = document.getElementById('status-area');
-        const loadingView = document.getElementById('loading-view');
-        const resultView = document.getElementById('result-view');
-
-        statusArea.style.display = "block";
-        loadingView.style.display = "block";
-        resultView.style.display = "none";
-
-        // Connexion à ton serveur Render
-        const formData = new FormData();
-        formData.append('site', site);
-        formData.append('file', fileInput.files[0]);
-
-        try {
-            // REMPLACE l'URL ci-dessous par ton URL Render après le déploiement
-            const response = await fetch('https://code-promo-app.onrender.com/test-promo', {
-                method: 'POST',
-                body: formData
-            });
-            const data = await response.json();
-
-            loadingView.style.display = "none";
-            resultView.innerHTML = `<div class="promo-success">🎉 -${data.economie} d'économie !</div>
-                                    <p>Le code <b>${data.code_gagnant}</b> marche super bien.</p>`;
-            resultView.style.display = "block";
-        } catch (error) {
-            alert("Petit souci technique, réessaie dans un instant !");
-        }
-    }
-</script>
+<!DOCTYPE html>
+<html>
+<body>
+    <h1>Test pour Maman</h1>
+    <p>Si tu vois ça, c'est que GitHub Pages marche !</p>
+</body>
+</html>
